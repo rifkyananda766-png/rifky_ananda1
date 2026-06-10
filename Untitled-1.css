@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: row;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  background: url('https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+h1 {
+  margin: 0;
+  font-weight: 600;
+  background: linear-gradient(to right, white, black);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.info {
+  text-align: right;
+  font-size: 14px;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(135deg, #1a1a1a, #6a0dad);
+  color: white;
+  height: 100vh;
+  padding-top: 60px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .menu,
+.sidebar.collapsed .dropdown a,
+.sidebar.collapsed .sub-menu a {
+  padding-left: 10px;
+  font-size: 0;
+}
+
+.sidebar.collapsed .menu i,
+.sidebar.collapsed .dropdown i {
+  font-size: 18px;
+}
+
+.content.collapsed {
+  margin-left: 60px;
+  transition: margin-left 0.3s ease;
+}
+
+.menu {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 15px 20px;
+  text-align: left;
+  background: linear-gradient(to right, #2c3e50, #4b6cb7);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+.menu:hover {
+  background-color: #3a3a3a;
+}
+
+.dropdown {
+  display: none;
+  flex-direction: column;
+  background-color: #2a2a2a;
+  padding: 0;
+}
+
+.dropdown.show {
+  display: flex;
+}
+
+.dropdown a {
+  display: block;
+  padding: 12px 20px;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.dropdown a:hover {
+  background-color: #444;
+  transform: translateX(5px);
+}
+
+.sub-menu {
+  display: none;
+  flex-direction: column;
+  padding-left: 20px;
+  background-color: #3c3c3c;
+}
+
+.sub-menu.show {
+  display: flex;
+}
+
+.sub-menu a {
+  font-size: 14px;
+  padding: 10px 15px;
+  margin: 3px 0;
+  background-color: #4a4a4a;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.sub-menu a:hover {
+  background-color: #5a5a5a;
+  transform: translateX(5px);
+}
+
+
+.content {
+  margin-left: 200px;
+  padding: 80px 20px 20px 20px;
+  width: 100%;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
+  transition: margin-left 0.3s ease;
+}
+
+.content.collapsed {
+  margin-left: 60px;
+}
+
+.content::after {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  background-image: url('3.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  filter: brightness(0.8);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.biodata {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: black;
+  z-index: 2;
+}
+
+.biodata * {
+  position: relative;
+  z-index: 2;
+}
+
+.biodata:hover {
+  transform: scale(1.02);
+}
+
+.biodata img,
+.related-photos img {
+  max-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.biodata h2,
+.biodata h3,
+.biodata p,
+.biodata strong {
+  color: black !important;
+  font-weight: bold;
+}
+
+.related-photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.socials {
+  margin-top: 10px;
+}
+
+.socials a {
+  margin: 0 10px;
+  font-size: 22px;
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.socials a:hover {
+  color: #0056b3;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
